@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, delay } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { navItems } from '../constants';
 import logo from '../assets/logo.png';
@@ -15,6 +15,7 @@ const logoVariants = {
       stiffness: 120,
       damping: 10,
       duration: 0.8,
+      delay: 0.4,
     },
   },
 };
@@ -29,7 +30,7 @@ const navItemVariants = {
       stiffness: 120,
       damping: 10,
       duration: 0.6,
-      staggerChildren: 0.1,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -155,7 +156,7 @@ function Navbar3() {
         <AnimatePresence>
           {mobileDrawerOpen && (
             <motion.div
-              className='fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden'
+              className='fixed right-0 z-20 bg-neutral-900 w-full  p-12 flex flex-col justify-center items-center lg:hidden'
               initial="hidden"
               animate="visible"
               exit="hidden"
