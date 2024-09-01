@@ -161,7 +161,7 @@ function Navbar4() {
           </motion.div>
 
           <motion.ul
-            className='hidden [@media(min-width:640px)]:flex ml-14 pr-1/2 space-x-12'
+            className='hidden [@media(min-width:620px)]:flex pr-1/2 space-x-12'
             variants={navItemContainerVariants} // Added this container variant for list1
             initial="hidden"
             animate="visible"
