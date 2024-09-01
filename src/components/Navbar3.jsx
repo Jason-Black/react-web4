@@ -30,7 +30,9 @@ const navItemVariants = {
       stiffness: 120,
       damping: 10,
       duration: 0.6,
-      staggerChildren: 0.2,
+      delay: .8,
+      staggerChildren: .2,
+      
     },
   },
 };
@@ -138,7 +140,7 @@ function Navbar3() {
             </motion.a>
             <motion.a
               href='#'
-              className='bg-gradient-to-r from-orange-500 to-teal-400 py-2 px-3 rounded-md'
+              className='bg-gradient-to-r from-orange-500 to-sky-500 py-2 px-3 rounded-md'
               variants={buttonVariants}
               whileHover="hover"
             >
@@ -156,7 +158,7 @@ function Navbar3() {
         <AnimatePresence>
           {mobileDrawerOpen && (
             <motion.div
-              className='fixed right-0 z-20 bg-neutral-900 w-full  p-12 flex flex-col justify-center items-center lg:hidden'
+             className='fixed right-0 z-20 bg-neutral-900 w-full pb-48 p-12 flex flex-col justify-center text-center items-center lg:hidden'
               initial="hidden"
               animate="visible"
               exit="hidden"
@@ -164,7 +166,7 @@ function Navbar3() {
             >
               <motion.ul variants={mobileNavItemVariants}>
                 {navItems.map((item, index) => (
-                  <motion.li key={index} className='py-4' variants={mobileNavItemVariants}>
+                  <motion.li key={index} className=' text-white py-4 px-3 transition-colors duration-300 hover:bg-white hover:text-black hover:border-white ' variants={mobileNavItemVariants}>
                     <a href={item.href}>{item.label}</a>
                   </motion.li>
                 ))}
