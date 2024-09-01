@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-scroll';  // Import Link from react-scroll
 import { navItems } from '../constants';
 import logo from '../assets/logo.png';
 
@@ -117,8 +118,7 @@ const mobileNavItemVariants = {
   },
 };
 
-
-function Navbar4() {
+function Navbar5() {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   // Effect to toggle scrolling
@@ -168,7 +168,14 @@ function Navbar4() {
           >
             {navItems.map((item, index) => (
               <motion.li key={index} variants={navItemVariants}>
-                <a href={item.href}>{item.label}</a>
+                <Link 
+                  to={item.href.slice(1)} // remove # and pass the id to Link
+                  smooth={true}
+                  duration={800}
+                  className="cursor-pointer"
+                >
+                  {item.label}
+                </Link>
               </motion.li>
             ))}
           </motion.ul>
@@ -211,8 +218,15 @@ function Navbar4() {
               <motion.ul variants={navItemContainerVariants2}>
                 {navItems.map((item, index) => (
                   <motion.li key={index} className='py-4 text-lg px-6 text-center transition-colors duration-300 hover:bg-white hover:text-black hover:border-white' variants={mobileNavItemVariants}>
-
-                    <a href={item.href}>{item.label}</a>
+                    <Link
+                      to={item.href.slice(1)} // remove # and pass the id to Link
+                      smooth={true}
+                      duration={800}
+                      className="cursor-pointer"
+                      onClick={toggleNavBar} // Close mobile menu on click
+                    >
+                      {item.label}
+                    </Link>
                   </motion.li>
                 ))}
               </motion.ul>
@@ -242,4 +256,4 @@ function Navbar4() {
   );
 }
 
-export default Navbar4;
+export default Navbar5;

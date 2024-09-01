@@ -10,6 +10,14 @@ import Hero6 from './components/Hero6';
 import Navbar2 from './components/Navbar2';
 import Navbar3 from './components/Navbar3';
 import Navbar4 from './components/Navbar4';
+import FeatureSection from './components/FeatureSection';
+import Pricing from './components/Pricing';
+import { Workflow } from 'lucide-react';
+import Testimonials from './components/Testimonials';
+import Footer from './components/Footer';
+import CursorDemo from './components/CursorDemo';
+import CursorDemo2 from './components/CursorDemo2';
+import Navbar5 from './components/Navbar5';
 
 
 function App() {
@@ -18,13 +26,21 @@ function App() {
       {/* <Navbar /> */}
       {/* <Navbar2 /> */}
       {/* <Navbar3 /> */}
-      <Navbar4 />
-      <div className=' max-auto pt-20 px-6'>
+      {/* <Navbar4 /> */}
+      <Navbar5 />
+      <div className="max-w-7xl mx-auto pt-20 px-6">
    {/* <Hero2 /> */}
    {/* <Hero3 /> */}
    {/* <Hero4 /> */}
    {/* <Hero5 /> */}
    <Hero6 />
+   <FeatureSection />
+   <Workflow />
+   <Pricing />
+ <CursorDemo />
+   <Testimonials />
+   <CursorDemo2 />
+   <Footer />
       </div>
     </div>
   
