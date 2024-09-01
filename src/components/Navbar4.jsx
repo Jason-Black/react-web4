@@ -19,6 +19,25 @@ const logoVariants = {
   },
 };
 
+const navItemContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 1.6,
+      staggerChildren: .3, // Stagger the entrance of child elements
+    },
+  },
+};
+
+const navItemContainerVariants2 = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: .3,
+      staggerChildren: .3, // Stagger the entrance of child elements
+    },
+  },
+};
 const navItemVariants = {
   hidden: { opacity: 0, y: -20 },
   visible: {
@@ -27,7 +46,6 @@ const navItemVariants = {
     transition: {
       duration: 0.6,
       ease: 'easeOut',
-      staggerChildren: 0.1,
     },
   },
 };
@@ -40,7 +58,7 @@ const buttonVariants = {
     transition: {
       duration: 0.6,
       ease: 'easeOut',
-      delay: 0.5,
+      delay: .2,
     },
   },
   hover: {
@@ -72,18 +90,33 @@ const mobileMenuVariants = {
 };
 
 const mobileNavItemVariants = {
-  hidden: { opacity: 0, y: 50, scale: 0.8 },
+  hidden: { opacity: 0, y: 50, rotate: -10, scale: 0.8 },
   visible: {
     opacity: 1,
     y: 0,
+    rotate: 0,
     scale: 1,
     transition: {
-      duration: 0.4,
+      type: 'spring',
+      stiffness: 120,
+      damping: 8,
+      duration: 0.8,
       ease: 'easeOut',
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
+    },
+  },
+  hover: {
+    scale: 1.15,
+    rotate: [0, 10, -10, 0], // Wiggle effect
+    color: ['#fff', '#ff6f61', '#ffd700', '#fff'],
+    transition: {
+      duration: 0.5,
+      ease: 'easeInOut',
+      times: [0, 0.3, 0.7, 1], // Controls the timing of the keyframes
     },
   },
 };
+
 
 function Navbar4() {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -128,8 +161,10 @@ function Navbar4() {
           </motion.div>
 
           <motion.ul
-            className='hidden lg:flex ml-14 space-x-12'
-            variants={navItemVariants}
+            className='hidden [@media(min-width:640px)]:flex ml-14 pr-1/2 space-x-12'
+            variants={navItemContainerVariants} // Added this container variant for list1
+            initial="hidden"
+            animate="visible"
           >
             {navItems.map((item, index) => (
               <motion.li key={index} variants={navItemVariants}>
@@ -173,14 +208,15 @@ function Navbar4() {
               exit="exit"
               variants={mobileMenuVariants}
             >
-              <motion.ul variants={mobileNavItemVariants}>
+              <motion.ul variants={navItemContainerVariants2}>
                 {navItems.map((item, index) => (
-                  <motion.li key={index} className='py-4' variants={mobileNavItemVariants}>
+                  <motion.li key={index} className='py-4 text-lg px-6 text-center transition-colors duration-300 hover:bg-white hover:text-black hover:border-white' variants={mobileNavItemVariants}>
+
                     <a href={item.href}>{item.label}</a>
                   </motion.li>
                 ))}
               </motion.ul>
-              <div className='flex space-x-6'>
+              <div className='sm:pt-10 pt-7 flex space-x-6'>
                 <motion.a
                   href='#'
                   className='py-2 px-3 border rounded-md'

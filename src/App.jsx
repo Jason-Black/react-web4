@@ -17,8 +17,8 @@ function App() {
     <div>
       {/* <Navbar /> */}
       {/* <Navbar2 /> */}
-      <Navbar3 />
-      {/* <Navbar4 /> */}
+      {/* <Navbar3 /> */}
+      <Navbar4 />
       <div className=' max-auto pt-20 px-6'>
    {/* <Hero2 /> */}
    {/* <Hero3 /> */}
