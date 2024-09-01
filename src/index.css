@@ -10,3 +10,15 @@
     font-family: "Kanit", sans-serif;
     color-scheme: dark;
 }
+
+.video-element {
+    opacity: 0;
+    animation: fadeIn 0.5s ease 1.2s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  

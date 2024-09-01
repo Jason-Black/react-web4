@@ -19,7 +19,7 @@ function App() {
       {/* <Navbar2 /> */}
       {/* <Navbar3 /> */}
       <Navbar4 />
-      <div className='max-w-7xl max-auto pt-20 px-6'>
+      <div className=' max-auto pt-20 px-6'>
    {/* <Hero2 /> */}
    {/* <Hero3 /> */}
    {/* <Hero4 /> */}
