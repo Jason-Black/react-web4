@@ -13,7 +13,7 @@
 
 .video-element {
     opacity: 0;
-    animation: fadeIn 0.5s ease 1.2s forwards;
+    animation: fadeIn 0.5s ease 1.5s forwards;
   }
   
   @keyframes fadeIn {
