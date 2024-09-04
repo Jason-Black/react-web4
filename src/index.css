@@ -22,3 +22,11 @@
     }
   }
   
+  body {
+    background: linear-gradient(
+      to bottom,                      /* Direction of the gradient */
+      rgba(56, 52, 73, 0.615) 0%,      /* Solid white at the top */
+      rgba(27, 15, 82, 0) 120px    /* Fully transparent after 200px */
+    );
+    background-repeat: no-repeat;
+  }

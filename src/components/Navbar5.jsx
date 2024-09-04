@@ -82,10 +82,10 @@ const mobileMenuVariants = {
   },
   exit: {
     opacity: 0,
-    x: '-100%',
+    y: '200%',
     transition: {
       duration: 0.5,
-      ease: 'easeOut',
+      ease: 'easeInOut',
     },
   },
 };
@@ -217,7 +217,7 @@ function Navbar5() {
             >
               <motion.ul variants={navItemContainerVariants2}>
                 {navItems.map((item, index) => (
-                  <motion.li key={index} className='py-4 text-lg px-6 text-center transition-colors duration-300 hover:bg-white hover:text-black hover:border-white' variants={mobileNavItemVariants}>
+                  <motion.li key={index} className='py-4 text-3xl px-6 text-center transition-colors duration-300 hover:bg-white hover:text-black hover:border-white' variants={mobileNavItemVariants}>
                     <Link
                       to={item.href.slice(1)} // remove # and pass the id to Link
                       smooth={true}
@@ -227,10 +227,12 @@ function Navbar5() {
                     >
                       {item.label}
                     </Link>
+                    
                   </motion.li>
+                  
                 ))}
               </motion.ul>
-              <div className='sm:pt-10 pt-7 flex space-x-6'>
+              <div className=' pt-[10vh] pb-[200px] flex space-x-6'>
                 <motion.a
                   href='#'
                   className='py-2 px-3 border rounded-md'
@@ -246,7 +248,9 @@ function Navbar5() {
                   whileHover="hover"
                 >
                   Create an Account
+               
                 </motion.a>
+              
               </div>
             </motion.div>
           )}
