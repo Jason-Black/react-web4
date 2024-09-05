@@ -22,14 +22,14 @@ import { motion } from 'framer-motion'; // Import motion for animations
 
 // Animation for the background image
 const backgroundImageVariants = {
-  hidden: { opacity: 0, y: 50 }, // Start hidden and slightly lower
+  hidden: { opacity: 0, y: -100 }, // Start hidden and further down
   visible: {
     opacity: 1,
-    y: 0, // Fade and move upwards
+    y: 0, // Move upwards to the final position
     transition: {
-      duration: 1,
-      ease: 'easeOut',
-      delay: 1.5, //add delay
+      duration: 1.3, // Adjust duration to balance the effect
+      ease: [0.68, -0.55, 0.27, 1.55], // Custom backOut curve with stronger overshoot
+      delay: 1.4, // Delay before starting the animation
     },
   },
 };

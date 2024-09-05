@@ -13,10 +13,10 @@ import user5 from "../assets/user5.png";
 import user6 from "../assets/user6.png";
 
 export const navItems = [
-  { label: "Features", href: "#" },
-  { label: "Workflow", href: "#" },
-  { label: "Pricing", href: "#" },
-  { label: "Testimonials", href: "#" },
+  { label: "About", href: "#" },
+  { label: "Work", href: "#" },
+  { label: "Services", href: "#" },
+  { label: "Contact", href: "#" },
 ];
 
 export const testimonials = [

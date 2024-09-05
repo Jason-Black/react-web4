@@ -79,7 +79,7 @@ const buttonVariants = {
 
 // Hero component
 const Hero6 = () => {
-  const title = "VirtualR build tools";
+  const title = "We build digital tools";
 
   return (
     <div>
@@ -108,19 +108,20 @@ const Hero6 = () => {
           <motion.span 
             className='text-transparent bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text'
           >
-            for developers
+            for Owners
           </motion.span>
         </motion.h1>
         
-        {/* Paragraph Section */}
-        <motion.p
-          className='mt-10 text-lg text-center text-neutral-500 max-w-4xl'
-          variants={pVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam aperiam totam repellat facilis minus distinctio debitis. At, deleniti nemo, fugit expedita aspernatur quidem qui corrupti, amet minima quod possimus eius?
-        </motion.p>
+    {/* Paragraph Section */}
+<motion.p
+  className='mt-10 sm:text-lg text-md text-center text-neutral-100 max-w-4xl drop-shadow-lg shadow-white'
+  style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
+  variants={pVariants}
+  initial="hidden"
+  animate="visible"
+>
+At Positron Sun, web design is just the start. Specializing in digital strategy, we offer expert services in web design, marketing, video production, and AI consulting—elevating your entire digital presence.</motion.p>
+
         
         {/* Button Section */}
         <motion.div className='flex justify-center my-10'>
