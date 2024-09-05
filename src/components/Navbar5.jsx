@@ -15,7 +15,7 @@ const logoVariants = {
       type: 'spring',
       stiffness: 120,
       damping: 10,
-      duration: 0.8,
+      duration: 0.5,
     },
   },
 };
@@ -54,7 +54,7 @@ const navItemContainerVariants = {
   hidden: {},
   visible: {
     transition: {
-      delayChildren: 1.6,
+      delayChildren: 0.4,
       staggerChildren: .3, // Stagger the entrance of child elements
     },
   },
@@ -64,7 +64,7 @@ const navItemContainerVariants2 = {
   hidden: {},
   visible: {
     transition: {
-      delayChildren: .3,
+      delayChildren: .1,
       staggerChildren: .3, // Stagger the entrance of child elements
     },
   },
@@ -76,7 +76,7 @@ const navItemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.3,
       ease: 'easeOut',
     },
   },
@@ -102,12 +102,12 @@ const buttonVariants = {
 };
 
 const mobileMenuVariants = {
-  hidden: { opacity: 0, x: '100%' },
+  hidden: { opacity: 0, x: '150%' },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
       ease: 'easeOut',
     },
   },
@@ -116,7 +116,7 @@ const mobileMenuVariants = {
     y: '200%',
     transition: {
       duration: 0.5,
-      ease: 'easeInOut',
+      ease: 'easeOut',
     },
   },
 };
@@ -132,7 +132,7 @@ const mobileNavItemVariants = {
       type: 'spring',
       stiffness: 120,
       damping: 8,
-      duration: 0.8,
+      duration: 0.3,
       ease: 'easeOut',
       staggerChildren: 0.15,
     },
@@ -153,12 +153,16 @@ function Navbar5() {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   // Effect to toggle scrolling
+  // useEffect(() => {
+  //   if (mobileDrawerOpen) {
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     document.body.style.overflow = '';
+  //   }
+  // }, [mobileDrawerOpen]);
+
   useEffect(() => {
-    if (mobileDrawerOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.classList.toggle('overflow-hidden', mobileDrawerOpen); // Toggle Tailwind class
   }, [mobileDrawerOpen]);
 
   const toggleNavBar = () => {
@@ -182,9 +186,9 @@ function Navbar5() {
       }}
     >
       <div className="container px-4 mx-auto relative text-sm">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center px-4 md:px-6 lg:px-8">
           <motion.div
-            className="flex items-center flex-shrink-0"
+            className="flex items-center space-x-2 lg:space-x-4 flex-shrink-0"
             variants={logoVariants}
           >
             <img className='h-10 w-10 mr-2' src={logo} alt='logo' />
@@ -205,7 +209,7 @@ function Navbar5() {
           </motion.div>
 
           <motion.ul
-            className='hidden [@media(min-width:620px)]:flex pr-1/2 space-x-12'
+            className='hidden sm:flex pr-1/2 space-x-6 lg:space-x-12'
             variants={navItemContainerVariants} // Added this container variant for list1
             initial="hidden"
             animate="visible"
@@ -243,7 +247,7 @@ function Navbar5() {
             </motion.a>
           </div>
 
-          <motion.div className="lg:hidden md:flex flex-col justify-end">
+          <motion.div className="lg:hidden flex items-center justify-center">
             <button onClick={toggleNavBar}>
               {mobileDrawerOpen ? <X /> : <Menu />}
             </button>
