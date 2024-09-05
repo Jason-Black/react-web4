@@ -19,6 +19,7 @@ import CursorDemo from './components/CursorDemo';
 import CursorDemo2 from './components/CursorDemo2';
 import Navbar5 from './components/Navbar5';
 import { motion } from 'framer-motion'; // Import motion for animations
+import Projects from './components/Projects';
 
 // Animation for the background image
 const backgroundImageVariants = {
@@ -58,7 +59,9 @@ function App() {
       {/* Main content container */}
       <div className="relative z-10 max-w-7xl mx-auto pt-20 px-6">
         <Hero6 />
+        <Projects />
         <FeatureSection />
+        
         <Workflow />
         <Pricing />
         <CursorDemo />
