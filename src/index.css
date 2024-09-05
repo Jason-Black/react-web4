@@ -13,7 +13,11 @@
 
 .video-element {
     opacity: 0;
-    animation: fadeIn 0.5s ease 1.5s forwards;
+    animation: fadeIn 0.5s ease 2.4s forwards;
+  }
+  
+  .text-container {
+    perspective: 1000px; /* Add perspective for 3D rotation */
   }
   
   @keyframes fadeIn {

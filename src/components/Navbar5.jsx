@@ -20,6 +20,36 @@ const logoVariants = {
   },
 };
 
+// New letter animation for 'PositronSun'
+const letterVariants = {
+  hidden: {
+    opacity: 0,
+    x: '-100%',
+    transform: 'rotateX(-90deg)', // Rotate along the X-axis (3D effect)
+    color: 'rgba(230, 211, 5, 1)', // Start from yellow-sun color
+  },
+  visible: {
+    opacity: 1,
+    transform: 'rotateX(0deg)', // Rotate back to normal
+    x: 0,
+    color: '#fff', // Transition to white
+    transition: {
+      duration: 0.8,
+      ease: 'easeInOut',
+    },
+  },
+};
+
+// Container to stagger the letters of the text
+const textContainerVariants = {
+  visible: {
+    transition: {
+      delayChildren: 0.7, // Adjust delay here for the animation start
+      staggerChildren: 0.05, // Stagger each letter animation
+    },
+  },
+};
+
 const navItemContainerVariants = {
   hidden: {},
   visible: {
@@ -39,6 +69,7 @@ const navItemContainerVariants2 = {
     },
   },
 };
+
 const navItemVariants = {
   hidden: { opacity: 0, y: -20 },
   visible: {
@@ -157,7 +188,20 @@ function Navbar5() {
             variants={logoVariants}
           >
             <img className='h-10 w-10 mr-2' src={logo} alt='logo' />
-            <span className='text-xl tracking-tight'>PositronSun</span>
+
+            {/* Sequential type-on effect for 'PositronSun' */}
+            <motion.span
+              className='text-xl tracking-tight'
+              variants={textContainerVariants} // Container for stagger animation
+              initial="hidden"
+              animate="visible"
+            >
+              {'PositronSun'.split('').map((letter, index) => (
+                <motion.span key={index} variants={letterVariants}>
+                  {letter}
+                </motion.span>
+              ))}
+            </motion.span>
           </motion.div>
 
           <motion.ul
@@ -172,7 +216,7 @@ function Navbar5() {
                   to={item.href.slice(1)} // remove # and pass the id to Link
                   smooth={true}
                   duration={800}
-                  className="cursor-pointer"
+                  className="cursor-pointer  transition-all duration-500  hover:bg-white hover:text-black px-4 py-2 rounded-md"
                 >
                   {item.label}
                 </Link>
@@ -207,56 +251,59 @@ function Navbar5() {
         </div>
 
         <AnimatePresence>
-          {mobileDrawerOpen && (
-            <motion.div
-              className='fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden'
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={mobileMenuVariants}
+  {mobileDrawerOpen && (
+    <motion.div
+      className='fixed right-0 z-20 bg-neutral-900 w-full p-12 flex flex-col justify-center items-center lg:hidden'
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={mobileMenuVariants}
+    >
+      <motion.ul variants={navItemContainerVariants2}>
+        {navItems.map((item, index) => (
+          <motion.li
+            key={index}
+            className='py-4 text-3xl px-6 text-center transition-colors duration-300 hover:bg-white hover:text-black hover:border-white'
+            variants={mobileNavItemVariants}
+          >
+            <Link
+              to={item.href.slice(1)} // remove # and pass the id to Link
+              smooth={true}
+              duration={800}
+              className="cursor-pointer"
+              onClick={toggleNavBar} // Close mobile menu on click
             >
-              <motion.ul variants={navItemContainerVariants2}>
-                {navItems.map((item, index) => (
-                  <motion.li key={index} className='py-4 text-3xl px-6 text-center transition-colors duration-300 hover:bg-white hover:text-black hover:border-white' variants={mobileNavItemVariants}>
-                    <Link
-                      to={item.href.slice(1)} // remove # and pass the id to Link
-                      smooth={true}
-                      duration={800}
-                      className="cursor-pointer"
-                      onClick={toggleNavBar} // Close mobile menu on click
-                    >
-                      {item.label}
-                    </Link>
-                    
-                  </motion.li>
-                  
-                ))}
-              </motion.ul>
-              <div className=' pt-[10vh] pb-[200px] flex space-x-6'>
-                <motion.a
-                  href='#'
-                  className='py-2 px-3 border rounded-md'
-                  variants={mobileNavItemVariants}
-                  whileHover="hover"
-                >
-                  Sign In
-                </motion.a>
-                <motion.a
-                  href='#'
-                  className='py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-teal-400'
-                  variants={mobileNavItemVariants}
-                  whileHover="hover"
-                >
-                  Create an Account
-               
-                </motion.a>
-              
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              {item.label}
+            </Link>
+          </motion.li>
+        ))}
+      </motion.ul>
+
+      <div className='pt-[10vh] pb-[200px] flex space-x-6'>
+        <motion.a
+          href='#'
+          className='py-2 px-3 border rounded-md'
+          variants={mobileNavItemVariants}
+          whileHover="hover"
+        >
+          Sign In
+        </motion.a>
+
+        <motion.a
+          href='#'
+          className='py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-teal-400'
+          variants={mobileNavItemVariants}
+          whileHover="hover"
+        >
+          Create an Account
+        </motion.a>
       </div>
     </motion.div>
+  )}
+</AnimatePresence>
+</div>
+
+</motion.div>
   );
 }
 

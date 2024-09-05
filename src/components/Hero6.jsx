@@ -83,7 +83,7 @@ const Hero6 = () => {
 
   return (
     <div>
-      <div className='flex flex-col items-center mt-6 lg:mt-20'>
+      <div className='flex flex-col items-center mt-6 '>
         {/* First h1 with letter-by-letter animation */}
         <motion.h1
           className='text-4xl sm:text-6xl md:text-7xl text-center tracking-wide flex overflow-hidden'
