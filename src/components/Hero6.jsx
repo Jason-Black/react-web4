@@ -79,14 +79,14 @@ const buttonVariants = {
 
 // Hero component
 const Hero6 = () => {
-  const title = "We build digital tools";
+  const title = "Websites Designed to Grow";
 
   return (
     <div>
       <div className='flex flex-col items-center mt-6 '>
         {/* First h1 with letter-by-letter animation */}
         <motion.h1
-          className='text-4xl sm:text-6xl md:text-7xl text-center tracking-wide flex overflow-hidden'
+          className='text-2xl sm:text-4xl md:text-5xl lg:text-7xl text-center tracking-tight flex overflow-hidden'
           variants={h1Variants}
           initial="hidden"
           animate="visible"
@@ -108,7 +108,7 @@ const Hero6 = () => {
           <motion.span 
             className='text-transparent bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text'
           >
-            for Owners
+            you Vision.
           </motion.span>
         </motion.h1>
         
@@ -134,7 +134,7 @@ At Positron Sun, web design is just the start. Specializing in digital strategy,
             whileHover="hover"
             whileTap="tap"
           >
-            Start for Free
+            First Contact
           </motion.a>
         </motion.div>
       </div>
