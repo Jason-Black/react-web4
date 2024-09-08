@@ -20,6 +20,8 @@ import CursorDemo2 from './components/CursorDemo2';
 import Navbar5 from './components/Navbar5';
 import { motion } from 'framer-motion'; // Import motion for animations
 import Projects from './components/Projects';
+import FlowTest from './components/FlowTest';
+import ResponsiveModal from './components/ResponsiveModal';
 
 // Animation for the background image
 const backgroundImageVariants = {
@@ -61,7 +63,8 @@ function App() {
         <Hero6 />
         <Projects />
         <FeatureSection />
-        
+        <ResponsiveModal />
+        <FlowTest />
         <Workflow />
         <Pricing />
         <CursorDemo />
