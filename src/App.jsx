@@ -22,6 +22,7 @@ import { motion } from 'framer-motion'; // Import motion for animations
 import Projects from './components/Projects';
 import FlowTest from './components/FlowTest';
 import ResponsiveModal from './components/ResponsiveModal';
+import Hero7 from './components/Hero7';
 
 // Animation for the background image
 const backgroundImageVariants = {
@@ -60,7 +61,8 @@ function App() {
 
       {/* Main content container */}
       <div className="relative z-10 max-w-7xl mx-auto pt-20 px-6">
-        <Hero6 />
+        {/* <Hero6 /> */}
+        <Hero7 />
         <Projects />
         <FeatureSection />
         <ResponsiveModal />

@@ -34,3 +34,20 @@
     );
     background-repeat: no-repeat;
   }
+
+  button[aria-label="Close"] {
+    z-index: 20; /* Ensure it's above the image */
+    position: relative; /* So the z-index takes effect */
+  }
+
+  .custom-glow-button {
+
+    position: relative;
+    transition: all 0.4s ease-in-out;
+}
+
+.custom-glow-button:hover {
+  
+    box-shadow: 0 0 25px rgba(15, 255, 255, 1.0);
+    color: aliceblue;
+}

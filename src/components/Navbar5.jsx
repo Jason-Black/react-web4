@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-scroll';  // Import Link from react-scroll
 import { navItems } from '../constants';
 import logo from '../assets/logo.png';
+import ResponsiveModal from './ResponsiveModal';
 
 // Animation variants for the Navbar elements
 const logoVariants = {
@@ -169,6 +170,9 @@ function Navbar5() {
     setMobileDrawerOpen(!mobileDrawerOpen);
   };
 
+    // Move useState inside the component
+    const [openModal, setOpenModal] = useState(false);
+
   return (
     <motion.div
       className='sticky top-0 z-50 py-3 backdrop-blur-lg border-b border-neutral-700/80'
@@ -229,22 +233,23 @@ function Navbar5() {
           </motion.ul>
 
           <div className="hidden lg:flex justify-center space-x-12 items-center">
-            <motion.a
+            {/* <motion.a
               href='#'
               className='py-2 px-3 border rounded-md'
               variants={buttonVariants}
               whileHover="hover"
             >
               Sign In
-            </motion.a>
-            <motion.a
-              href='#'
-              className='bg-gradient-to-r from-orange-500 to-teal-400 py-2 px-3 rounded-md'
-              variants={buttonVariants}
-              whileHover="hover"
-            >
-              Create an Account
-            </motion.a>
+            </motion.a> */}
+        <motion.div
+  variants={buttonVariants} // Apply the same animation variants
+  initial="hidden"
+  animate="visible"
+  whileHover="hover"
+  whileTap="tap"
+>
+  <ResponsiveModal openModal={openModal} setOpenModal={setOpenModal} />
+</motion.div>
           </div>
 
           <motion.div className="lg:hidden flex items-center justify-center">

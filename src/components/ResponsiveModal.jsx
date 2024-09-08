@@ -92,7 +92,7 @@ function ResponsiveModal() {
 
   return (
     <>
-      <Button onClick={openAndResizeModal} className='bg-gradient-to-r from-orange-500 to-sky-500 py-3 px-4 mx-3 rounded-md text-white'>
+      <Button onClick={openAndResizeModal} className='custom-glow-button border-none bg-gradient-to-r from-orange-500 to-sky-500 py-2 px-4 mx-2 rounded-2xl text-white'>
         First Contact
       </Button>
 
