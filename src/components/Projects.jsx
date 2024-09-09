@@ -1,9 +1,9 @@
 import React from "react";
 import ProjectItem from "./ProjectItem";
-import propertyImg from "../assets/spiderman-3.png";
-import cryptoImg from "../assets/spiderman-18.png";
-import netflixImg from "../assets/Sytan-V1-01-ironman.png";
-import twitchImg from "../assets/Sytan-V1-01-spiderman.png";
+import propertyImg from "../assets/JessHomes-web.jpg";
+import cryptoImg from "../assets/defi-web.jpg";
+import netflixImg from "../assets/loginscreen-web.jpg";
+import twitchImg from "../assets/developer-web.jpg";
 
 const Projects = () => {
   return (
