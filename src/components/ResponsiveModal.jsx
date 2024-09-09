@@ -97,6 +97,7 @@ function ResponsiveModal() {
       </Button>
 
       <Modal
+      dismissible 
         show={openModal}
         size={modalSize}
         onClose={() => setOpenModal(false)}
