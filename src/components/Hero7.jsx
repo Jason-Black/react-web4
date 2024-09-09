@@ -111,7 +111,7 @@ const Hero7 = () => {
           <motion.span 
             className='text-transparent bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text'
           >
-            you Vision.
+            your Vision.
           </motion.span>
         </motion.h1>
         
