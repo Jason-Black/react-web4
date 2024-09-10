@@ -2,7 +2,7 @@ import React from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const ProjectItem = ({ img, title }) => {
+const ProjectItem = ({ img, title, urllink, aabout, ttarget, rrel }) => {
   // Animation controller
   const controls = useAnimation();
 
@@ -40,7 +40,7 @@ const ProjectItem = ({ img, title }) => {
       initial="hidden" // Initial state
       animate={controls} // Animation control based on visibility
       variants={variants} // Apply the animation variants
-      className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-400 rounded-xl group hover:bg-gradient-to-r from-gray-200 to-[#001b5e]"
+      className="relative flex items-center justify-center h-auto w-full shadow-lg  shadow-gray-400 rounded-xl group hover:bg-gradient-to-r from-gray-200 to-[#001b5e]"
     >
       <img
         src={img}
@@ -51,8 +51,8 @@ const ProjectItem = ({ img, title }) => {
         <h3 className="text-2xl font-bold text-white tracking-wider text-center">
           {title}
         </h3>
-        <p className="pb-4 pt-2 text-white text-center">React Js</p>
-        <a href="/">
+        <p className="pb-4 pt-2 text-white text-center">{aabout}</p>
+        <a href={urllink} target={ttarget} rel={rrel}>
         
         <p className="text-center p-3 rounded-lg border-2 border-white text-white font-bold cursor-pointer text-lg transition duration-300 ease-in-out transform hover:bg-white hover:text-gray-700 hover:scale-105 active:scale-95 active:text-white active:bg-black focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-70">
       More Info

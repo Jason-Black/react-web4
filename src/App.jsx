@@ -24,6 +24,7 @@ import FlowTest from './components/FlowTest';
 import ResponsiveModal from './components/ResponsiveModal';
 import Hero7 from './components/Hero7';
 import Services from './components/Services';
+import Footer2 from './components/Footer2';
 
 // Animation for the background image
 const backgroundImageVariants = {
@@ -75,6 +76,7 @@ function App() {
         <CursorDemo />
         <Testimonials />
         <CursorDemo2 />
+        <Footer2 />
         <Footer />
       </div>
     </div>

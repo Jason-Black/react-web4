@@ -13,7 +13,7 @@ import user5 from "../assets/user5.png";
 import user6 from "../assets/user6.png";
 
 export const navItems = [
-  { label: "About", href: "#" },
+  { label: "About", href: "https://www.jasons.online/" },
   { label: "Work", href: "#" },
   { label: "Services", href: "#" },
   { label: "Contact", href: "#" },
