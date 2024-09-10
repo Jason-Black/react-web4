@@ -73,18 +73,17 @@ function AnimatedTitle({ scrollYProgress }) {
   // Adjust these values to change when the animation starts and ends
   const animationStart = 0.1 // Animation starts when 10% of the section is in view
   const animationEnd = 0.3   // Animation ends when 30% of the section is in view
-  const animationOutStart = 0.7 // Animation out starts when 70% of the section has been scrolled past
-  const animationOutEnd = 0.9   // Animation out ends when 90% of the section has been scrolled past
+ 
 
   const y = useTransform(
     scrollYProgress,
-    [animationStart, animationEnd, animationOutStart, animationOutEnd],
-    [-50, 0, 0, 50]
+    [animationStart, animationEnd],
+    [-50, 0]
   )
   const opacity = useTransform(
     scrollYProgress,
-    [animationStart, animationEnd, animationOutStart, animationOutEnd],
-    [0, 1, 1, 0]
+    [animationStart, animationEnd],
+    [0, 1]
   )
 
   return (
@@ -101,18 +100,17 @@ function AnimatedDescription({ scrollYProgress }) {
   // Adjust these values to change when the animation starts and ends
   const animationStart = 0.15 // Animation starts when 15% of the section is in view
   const animationEnd = 0.35   // Animation ends when 35% of the section is in view
-  const animationOutStart = 0.65 // Animation out starts when 65% of the section has been scrolled past
-  const animationOutEnd = 0.85   // Animation out ends when 85% of the section has been scrolled past
+  
 
   const y = useTransform(
     scrollYProgress,
-    [animationStart, animationEnd, animationOutStart, animationOutEnd],
-    [20, 0, 0, -20]
+    [animationStart, animationEnd],
+    [20, 0]
   )
   const opacity = useTransform(
     scrollYProgress,
-    [animationStart, animationEnd, animationOutStart, animationOutEnd],
-    [0, 1, 1, 0]
+    [animationStart, animationEnd],
+    [0, 1]
   )
 
   return (

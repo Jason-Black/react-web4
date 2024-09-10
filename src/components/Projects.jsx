@@ -7,10 +7,10 @@ import twitchImg from "../assets/developer-web.jpg";
 
 const Projects = () => {
   return (
-    <div id="projects" className="max-w-[1040px] m-auto md:pl-20 py-16">
-      <h1 className="text-4xl font-bold text-center text-[#001b5e]">Projects</h1>
-      <p className="text-center py-8">
-        A lot of dummy text oh wow this is a lot of text it is taking sooooo long to type it all.
+    <div id="projects" className=" m-auto md:pl-20 py-16">
+      <h1 className="text-6xl font-bold text-center text-transparent bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text">Projects</h1>
+      <p className="text-center mb-3 mt-2 py-8">
+        Web Design is just the beginning of what we will do together... 
       </p>
 
       <div className="grid sm:grid-cols-2 gap-12">
