@@ -25,6 +25,7 @@ import ResponsiveModal from './components/ResponsiveModal';
 import Hero7 from './components/Hero7';
 import Services from './components/Services';
 import Footer2 from './components/Footer2';
+import Services2 from './components/Services2';
 
 // Animation for the background image
 const backgroundImageVariants = {
@@ -65,7 +66,8 @@ function App() {
       <div className="relative z-10 max-w-7xl mx-auto pt-20 px-6">
         {/* <Hero6 /> */}
         <Hero7 /> 
-         <Services />
+         {/* <Services /> */}
+         <Services2 />
         <Projects />
         <FeatureSection />
        
