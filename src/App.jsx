@@ -26,6 +26,7 @@ import Hero7 from './components/Hero7';
 import Services from './components/Services';
 import Footer2 from './components/Footer2';
 import Services2 from './components/Services2';
+import BackgroundAnimator from './components/BackgroundAnimator';
 
 // Animation for the background image
 const backgroundImageVariants = {
@@ -58,6 +59,7 @@ function App() {
   );
   return (
     <div>
+      <BackgroundAnimator />
       {/* <Navbar /> */}
       {/* <Navbar2 /> */}
       {/* <Navbar3 /> */}
