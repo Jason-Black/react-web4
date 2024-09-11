@@ -7,7 +7,7 @@ import twitchImg from "../assets/developer-web.jpg";
 
 const Projects = () => {
   return (
-    <div id="projects" className=" m-auto  py-16">
+    <div id="projectsid" className=" m-auto  py-16">
       <h1 className="text-6xl font-bold text-center text-transparent bg-gradient-to-r from-orange-500 to-sky-500 bg-clip-text">Projects</h1>
       <p className="md:text-2xl sm:text-xl text-lg text-center mb-3 mt-2 py-8">
         Web Design is just the beginning of what we will do together... 

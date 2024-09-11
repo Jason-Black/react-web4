@@ -73,8 +73,8 @@ function App() {
         {/* <Hero6 /> */}
         <Hero7 /> 
          {/* <Services /> */}
-         <Services2 />
-        <Projects />
+         <Services2 id="servicesid" />
+        <Projects id="#projectsid"/>
         <FeatureSection />
        
   

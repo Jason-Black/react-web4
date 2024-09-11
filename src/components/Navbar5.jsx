@@ -218,18 +218,31 @@ function Navbar5() {
             initial="hidden"
             animate="visible"
           >
-            {navItems.map((item, index) => (
-              <motion.li key={index} variants={navItemVariants}>
-                <Link 
-                  to={item.href.slice(1)} // remove # and pass the id to Link
-                  smooth={true}
-                  duration={800}
-                  className="cursor-pointer  transition-all duration-500  hover:bg-white hover:text-black px-4 py-2 rounded-md"
-                >
-                  {item.label}
-                </Link>
-              </motion.li>
-            ))}
+     {navItems.map((item, index) => (
+  item.href.startsWith('#') ? (
+    <motion.li key={index} variants={navItemVariants}>
+      <Link 
+        to={item.href.slice(1)} // Remove `#` for internal scroll links
+        smooth={true}
+        duration={800}
+        className="cursor-pointer transition-all duration-500 hover:bg-white hover:text-black px-4 py-2 rounded-md"
+      >
+        {item.label}
+      </Link>
+    </motion.li>
+  ) : (
+    <motion.li key={index} variants={navItemVariants}>
+      <a 
+        href={item.href} // Use a regular <a> for external links
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cursor-pointer transition-all duration-500 hover:bg-white hover:text-black px-4 py-2 rounded-md"
+      >
+        {item.label}
+      </a>
+    </motion.li>
+  )
+))}
           </motion.ul>
 
           <div className="hidden lg:flex justify-center space-x-12 items-center">
@@ -289,23 +302,18 @@ function Navbar5() {
       </motion.ul>
 
       <div className='pt-[10vh] pb-[200px] flex space-x-6'>
-        <motion.a
+        {/* <motion.a
           href='#'
           className='py-2 px-3 border rounded-md'
           variants={mobileNavItemVariants}
           whileHover="hover"
         >
           Sign In
-        </motion.a>
+        </motion.a> */}
 
-        <motion.a
-          href='#'
-          className='py-2 px-3 rounded-md bg-gradient-to-r from-orange-500 to-teal-400'
-          variants={mobileNavItemVariants}
-          whileHover="hover"
-        >
-          Create an Account
-        </motion.a>
+       
+        <ResponsiveModal />
+       
       </div>
     </motion.div>
   )}

@@ -6,6 +6,9 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
 :root {
     font-family: "Kanit", sans-serif;
     color-scheme: dark;

@@ -14,8 +14,8 @@ import user6 from "../assets/user6.png";
 
 export const navItems = [
   { label: "About", href: "https://www.jasons.online/" },
-  { label: "Work", href: "#" },
-  { label: "Services", href: "#" },
+  { label: "Projects", href: "#projectsid" },
+  { label: "Services", href: "#servicesid" },
   { label: "Contact", href: "#" },
 ];
 

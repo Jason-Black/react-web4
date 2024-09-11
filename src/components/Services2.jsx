@@ -34,7 +34,7 @@ export default function Services2() {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section id="servicesid" className="relative py-20 overflow-hidden">
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto pt-2 px-6">
         <AnimatedTitle />
