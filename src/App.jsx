@@ -82,7 +82,7 @@ function App() {
       <div className="relative z-10 max-w-7xl mx-auto pt-20 px-6">
         {/* <Hero6 /> */}
         <Hero7 /> 
-         <Services />
+         {/* <Services /> */}
          <Services2 />
         <Projects />
         <FeatureSection />

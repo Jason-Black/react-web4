@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Computer, Lightbulb, Cog, ChevronDown, X } from 'lucide-react';
 import ResponsiveModal from './ResponsiveModal';
 
@@ -11,11 +11,6 @@ const icons = {
 
 export default function Services2() {
   const [selectedService, setSelectedService] = useState(null);
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
 
   const services = [
     {
@@ -39,15 +34,11 @@ export default function Services2() {
   ];
 
   return (
-    <section
-      className="relative py-20 overflow-hidden"
-      ref={containerRef}
-      
-    >
+    <section className="relative py-20 overflow-hidden">
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto pt-2 px-6">
-        <AnimatedTitle scrollYProgress={scrollYProgress} />
-        <AnimatedDescription scrollYProgress={scrollYProgress} />
+        <AnimatedTitle />
+        <AnimatedDescription />
         <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative mt-4">
           {services.map((service, index) => (
             <ServiceBlock
@@ -55,14 +46,14 @@ export default function Services2() {
               service={service}
               index={index}
               onClick={() => setSelectedService(service)}
-              scrollYProgress={scrollYProgress}
             />
           ))}
         </motion.div>
-        <AnimatedCTA scrollYProgress={scrollYProgress} />
+        <AnimatedCTA />
       </div>
-        {/* Modal Rendering */}
-        <AnimatePresence>
+
+      {/* Modal Rendering */}
+      <AnimatePresence>
         {selectedService && (
           <ServiceModal
             service={selectedService}
@@ -74,15 +65,17 @@ export default function Services2() {
   );
 }
 
-function AnimatedTitle({ scrollYProgress }) {
-  const animationStart = 0.1;
-  const animationEnd = 0.3;
-  const y = useTransform(scrollYProgress, [animationStart, animationEnd], [-50, 0]);
-  const opacity = useTransform(scrollYProgress, [animationStart, animationEnd], [0, 1]);
+// Animated Title Component - Triggers once and stays there
+function AnimatedTitle() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -10% 0px' }); // Trigger once
 
   return (
     <motion.h2
-      style={{ y, opacity }}
+      ref={ref}
+      initial={{ y: -50, opacity: 0 }}
+      animate={isInView ? { y: 0, opacity: 1 } : {}} // Plays once, then does nothing
+      transition={{ duration: 0.5 }}
       className="text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-sky-500"
     >
       Our Services
@@ -90,29 +83,37 @@ function AnimatedTitle({ scrollYProgress }) {
   );
 }
 
-function AnimatedDescription({ scrollYProgress }) {
-  const animationStart = 0.15;
-  const animationEnd = 0.35;
-  const y = useTransform(scrollYProgress, [animationStart, animationEnd], [20, 0]);
-  const opacity = useTransform(scrollYProgress, [animationStart, animationEnd], [0, 1]);
+// Animated Description Component - Triggers once and stays there
+function AnimatedDescription() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -10% 0px' }); // Trigger once
 
   return (
-    <motion.p style={{ y, opacity }} className="text-xl text-center text-gray-300 mb-12">
+    <motion.p
+      ref={ref}
+      initial={{ y: 20, opacity: 0 }}
+      animate={isInView ? { y: 0, opacity: 1 } : {}} // Plays once, then does nothing
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="text-xl text-center text-gray-300 mb-12"
+    >
       Discover how Positron Sun can elevate your business
     </motion.p>
   );
 }
 
-function ServiceBlock({ service, index, onClick, scrollYProgress }) {
+// Service Block Component - Triggers once and stays there
+function ServiceBlock({ service, index, onClick }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -10% 0px' }); // Trigger once
+
   const Icon = icons[service.icon];
-  const animationStart = 0.2 + index * 0.05;
-  const animationEnd = 0.4 + index * 0.05;
-  const y = useTransform(scrollYProgress, [animationStart, animationEnd], [50, 0]);
-  const opacity = useTransform(scrollYProgress, [animationStart, animationEnd], [0, 1]);
 
   return (
     <motion.div
-      style={{ y, opacity }}
+      ref={ref}
+      initial={{ y: 50, opacity: 0 }}
+      animate={isInView ? { y: 0, opacity: 1 } : {}} // Plays once, then does nothing
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ scale: 1.05 }}
       className="bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer transform transition-all duration-300 hover:shadow-xl border border-gray-700"
       onClick={onClick}
@@ -133,18 +134,24 @@ function ServiceBlock({ service, index, onClick, scrollYProgress }) {
   );
 }
 
-function AnimatedCTA({ scrollYProgress }) {
-  const animationStart = 0.25;
-  const animationEnd = 0.45;
-  const y = useTransform(scrollYProgress, [animationStart, animationEnd], [20, 0]);
-  const opacity = useTransform(scrollYProgress, [animationStart, animationEnd], [0, 1]);
+// Animated CTA Component - Triggers once and stays there
+function AnimatedCTA() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -10% 0px' }); // Trigger once
 
   return (
-    <motion.div className="flex items-center justify-center w-full text-center mt-16">
+    <motion.div
+      ref={ref}
+      initial={{ y: 20, opacity: 0 }}
+      animate={isInView ? { y: 0, opacity: 1 } : {}} // Plays once, then does nothing
+      transition={{ duration: 0.5, delay: 0.2 }}
+      className="flex items-center justify-center w-full text-center mt-16"
+    >
       <ResponsiveModal />
     </motion.div>
   );
 }
+
 // Service Modal with Closing Logic
 function ServiceModal({ service, onClose }) {
   return (
