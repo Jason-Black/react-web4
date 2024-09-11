@@ -113,10 +113,11 @@ function ServiceBlock({ service, index, onClick }) {
       ref={ref}
       initial={{ y: 50, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : {}} // Plays once, then does nothing
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.05 }}
-      className="bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer transform transition-all duration-300 hover:shadow-xl border border-gray-700"
+      className="bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer hover:shadow-xl border border-gray-700 will-change-transform"
       onClick={onClick}
+      style={{ willChange: 'transform' }} // Add will-change for smoother animations
     >
       <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-sky-500 rounded-full mb-4 mx-auto">
         <Icon className="w-8 h-8 text-white" />
@@ -125,7 +126,7 @@ function ServiceBlock({ service, index, onClick }) {
       <p className="text-gray-300 mb-4 text-center">{service.description}</p>
       <motion.button
         whileHover={{ scale: 1.1 }}
-        className="text-blue-400 font-semibold flex items-center justify-center w-full"
+        className="text-blue-400 font-semibold flex items-center justify-center w-full will-change-transform"
       >
         Learn More
         <ChevronDown className="ml-1 w-4 h-4" />

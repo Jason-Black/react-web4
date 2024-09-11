@@ -46,17 +46,7 @@ const backgroundImageVariants = {
 
 
 function App() {
-  const { scrollYProgress } = useScroll();
-   // Transform the scroll progress to different background gradients
-   const background = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1], // Control points (scroll progress ranges)
-    [
-      'linear-gradient(to right, #000000, #000033)', // Start dark
-      'linear-gradient(to right, #020024, #090979)', // Slightly brighter
-      'linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b)', // Medium brightness
-    ]
-  );
+
   return (
     <div>
       <BackgroundAnimator />
