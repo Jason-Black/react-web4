@@ -122,7 +122,7 @@ function ResponsiveModal() {
     </motion.a>
 
     <motion.a
-      href="https://twitter.com"
+      href="https://x.com/positronsun"
       target="_blank"
       rel="noopener noreferrer"
       variants={iconVariants}
@@ -177,31 +177,35 @@ function ResponsiveModal() {
       <motion.div variants={contactInfoVariants} className="w-full space-y-6">
         <div className="space-y-2">
           {/* Phone */}
-          <motion.p
+          <motion.a
+            href="tel:+18282767477" // Tel link for mobile devices
             variants={contactInfoVariants}
+            whileHover={{ scale: 1.05, color: '#FFB800', transition: { type: 'spring', stiffness: 120 } }} // Hover effect
             className="flex items-center text-lg md:text-xl lg:text-2xl space-x-2"
           >
             <HiPhone className="w-8 h-8 md:w-12 md:h-12 text-yellow-400 flex-shrink-0" />
-            <span>(123) 456-7890</span>
-          </motion.p>
+            <span>(828) 276-2477</span>
+          </motion.a>
 
           {/* Email */}
-          <motion.p
-            variants={contactInfoVariants}
-            className="flex items-center text-lg md:text-xl lg:text-2xl space-x-2 flex-nowrap  "
-          >
-            <HiOutlineMail className="w-8 h-8 md:w-12 md:h-12 text-yellow-400 flex-shrink-0" />
-            <span>email@example.com</span>
-          </motion.p>
+         {/* Email */}
+<motion.a
+  href="mailto:jason@positronsun.com" // Fallback to mailto for desktop users
+  variants={contactInfoVariants}
+  whileHover={{ scale: 1.05, color: '#FFB800', transition: { type: 'spring', stiffness: 120 } }} // Hover effect
+  onClick={(e) => {
+    e.preventDefault(); // Prevent default mailto
+    navigator.clipboard.writeText("jason@positronsun.com"); // Copy email to clipboard
+    alert("Email copied to clipboard!"); // Alert to confirm copy
+  }}
+  className="flex items-center text-lg md:text-xl lg:text-2xl space-x-2 flex-nowrap cursor-pointer"
+>
+  <HiOutlineMail className="w-8 h-8 md:w-12 md:h-12 text-yellow-400 flex-shrink-0" />
+  <span>jason@positronsun.com</span>
+</motion.a>
 
-          {/* Support Email */}
-          <motion.p
-            variants={contactInfoVariants}
-            className="flex items-center text-lg md:text-xl lg:text-2xl space-x-2"
-          >
-            <HiOutlineMail className="w-8 h-8 md:w-12 md:h-12 text-yellow-400 flex-shrink-0" />
-            <span>support@example.com</span>
-          </motion.p>
+
+
 
           {/* Office Hours */}
           <motion.p
@@ -218,7 +222,7 @@ function ResponsiveModal() {
             className="flex items-center text-lg md:text-xl lg:text-2xl space-x-2"
           >
             <HiOutlineLocationMarker className="w-8 h-8 md:w-12 md:h-12 text-yellow-400 flex-shrink-0" />
-            <span>1234 Address St., City, Country</span>
+            <span>Asheville, North Carolina</span>
           </motion.p>
         </div>
       </motion.div>

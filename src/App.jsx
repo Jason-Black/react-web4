@@ -20,7 +20,7 @@ import CursorDemo2 from './components/CursorDemo2';
 import Navbar5 from './components/Navbar5';
 import { motion, useScroll, useTransform } from 'framer-motion'; // Import motion for animations
 import Projects from './components/Projects';
-import FlowTest from './components/FlowTest';
+
 import ResponsiveModal from './components/ResponsiveModal';
 import Hero7 from './components/Hero7';
 import Services from './components/Services';
