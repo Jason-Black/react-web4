@@ -7,19 +7,19 @@ export default function BackgroundAnimator() {
   // Create color transformations based on scroll progress
   const color1 = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.5, 0.7, 0.9, 1],
+    [0, 0.2, 0.4, 0.65, 0.85, 1],
     ['#000000', '#020024', '#ff6a95', '#ffaf7b', '#ff6a95', '#020024']
   );
 
   const color2 = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.5, 0.7, 0.9, 1],
+    [0, 0.3, 0.4, 0.65, 0.85, 1],
     ['#000033', '#090979', '#d76d77', '#ffaf7b', '#d76d77', '#090979']
   );
 
   const color3 = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.5, 0.7, 0.9, 1],
+    [0, 0.1, 0.4, 0.65, 0.85, 1],
     ['#000033', '#3a1c71', '#ffaf7b', '#ff6a95', '#ffaf7b', '#3a1c71']
   );
 
