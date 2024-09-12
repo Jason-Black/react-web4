@@ -61,6 +61,7 @@ export default function SecondaryHero() {
           className="w-full h-full object-cover"
         />
       </motion.div> 
+      
       {/* Far Away Mountain Scene */}
       <motion.div
         className="absolute inset-0 w-full h-full"
