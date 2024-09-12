@@ -27,6 +27,8 @@ import Services from './components/Services';
 import Footer2 from './components/Footer2';
 import Services2 from './components/Services2';
 import BackgroundAnimator from './components/BackgroundAnimator';
+import ParallaxSection from './components/ParallaxSection';
+import SecondaryHero from './components/SecondaryHero';
 
 // Animation for the background image
 const backgroundImageVariants = {
@@ -76,8 +78,10 @@ function App() {
          <Services2 id="servicesid" />
         <Projects id="#projectsid"/>
         <FeatureSection />
-       
-  
+       </div>
+       {/* <ParallaxSection /> */}
+<SecondaryHero />
+     <div className="relative z-10 max-w-7xl mx-auto pt-20 px-6">
       
         <Workflow />
         <Pricing />
