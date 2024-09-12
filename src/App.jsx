@@ -12,7 +12,7 @@ import Navbar3 from './components/Navbar3';
 import Navbar4 from './components/Navbar4';
 import FeatureSection from './components/FeatureSection';
 import Pricing from './components/Pricing';
-import { Workflow } from 'lucide-react';
+
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import CursorDemo from './components/CursorDemo';
@@ -20,6 +20,7 @@ import CursorDemo2 from './components/CursorDemo2';
 import Navbar5 from './components/Navbar5';
 import { motion, useScroll, useTransform } from 'framer-motion'; // Import motion for animations
 import Projects from './components/Projects';
+import Workflow2 from './components/Workflow2';
 
 import ResponsiveModal from './components/ResponsiveModal';
 import Hero7 from './components/Hero7';
@@ -29,6 +30,7 @@ import Services2 from './components/Services2';
 import BackgroundAnimator from './components/BackgroundAnimator';
 import ParallaxSection from './components/ParallaxSection';
 import SecondaryHero from './components/SecondaryHero';
+
 
 // Animation for the background image
 const backgroundImageVariants = {
@@ -77,18 +79,20 @@ function App() {
          {/* <Services /> */}
          <Services2 id="servicesid" />
         <Projects id="#projectsid"/>
-        <FeatureSection />
-       </div>
-       {/* <ParallaxSection /> */}
-<SecondaryHero />
-     <div className="relative z-10 max-w-7xl mx-auto pt-20 px-6">
       
-        <Workflow />
+      <Workflow2 />
         <Pricing />
-        <CursorDemo />
+    <FeatureSection />
+      
+  
+      
+     
         <Testimonials />
         <CursorDemo2 />
-        <Footer2 />
+  </div>
+  
+<SecondaryHero />
+     <div className="relative z-10 max-w-7xl mx-auto pt-20 px-6">
         <Footer />
       </div>
     </div>
