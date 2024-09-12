@@ -81,14 +81,12 @@ function App() {
         <Projects id="#projectsid"/>
       
       <Workflow2 />
-        <Pricing />
-    <FeatureSection />
-      
+     
   
       
      
         <Testimonials />
-        <CursorDemo2 />
+      
   </div>
   
 <SecondaryHero />

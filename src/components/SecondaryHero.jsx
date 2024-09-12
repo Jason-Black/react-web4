@@ -1,31 +1,43 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import closeUpImage from '../assets/mtn7-Recovered-close.png';
 import farAwayImage from '../assets/mtn7-Recovered2.png';
 
 export default function SecondaryHero() {
-  // Motion values for mouse x and y positions
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect if the user is on a mobile device
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Motion values for mouse x and y positions (only for non-mobile devices)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Parallax effect: horizontal translation based on mouse movement
-  const closeUpX = useTransform(mouseX, [0, window.innerWidth], [-20, 20]); // More movement for close-up image
-  const farAwayX = useTransform(mouseX, [0, window.innerWidth], [-10, 10]); // Less movement for far away image
-
-  // 3D Text rotation based on mouse movement
+  const closeUpX = useTransform(mouseX, [0, window.innerWidth], [-20, 20]);
+  const farAwayX = useTransform(mouseX, [0, window.innerWidth], [-10, 10]);
   const rotateX = useTransform(mouseY, [0, window.innerHeight], [-10, 10]);
   const rotateY = useTransform(mouseX, [0, window.innerWidth], [-10, 10]);
 
-  // Update motion values when the mouse moves
+  // Conditionally enable mouse movement listeners only for non-mobile devices
   useEffect(() => {
-    const handleMouseMove = (event) => {
-      mouseX.set(event.clientX);
-      mouseY.set(event.clientY);
-    };
+    if (!isMobile) {
+      const handleMouseMove = (event) => {
+        mouseX.set(event.clientX);
+        mouseY.set(event.clientY);
+      };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, [isMobile, mouseX, mouseY]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -34,9 +46,17 @@ export default function SecondaryHero() {
         className="absolute inset-0 w-full h-full"
         initial={{ y: '80%', opacity: 0 }}  // Start below the screen
         whileInView={{ y: '0%', opacity: 1 }}  // Animate into position
-        transition={{ duration: 1.0, ease: 'easeOut', delay: 0.5 }}  // Smooth easing
+        transition={{
+          duration: 1.5, // Smooth transition for far away image
+          ease: 'easeOut',
+          delay: 0.6,  // Delay after close-up image
+        }}
         viewport={{ once: true, amount: 0.1 }}  // Trigger when 10% is in view
-        style={{ zIndex: 1, x: farAwayX, scale: 1.08 }}  // Apply parallax movement for far away image
+        style={{
+          zIndex: 1,
+          x: isMobile ? 0 : farAwayX,  // Disable parallax effect on mobile
+          scale: 1.08,
+        }}
       >
         <img
           src={farAwayImage}
@@ -50,9 +70,17 @@ export default function SecondaryHero() {
         className="absolute inset-0 w-full h-full"
         initial={{ y: '60%', opacity: 0 }}  // Start lower for close-up effect
         whileInView={{ y: '0%', opacity: 1 }}  // Animate into position
-        transition={{ duration: 1.1, ease: 'easeOut', delay: 0.1 }}  // Slight delay for layering effect
+        transition={{
+          duration: 1.2, // Faster animation for close-up
+          ease: 'easeOut',
+          delay: 0.1,  // Start before the far away image
+        }}
         viewport={{ once: true, amount: 0.1 }}  // Trigger when 10% is in view
-        style={{ zIndex: 2, x: closeUpX, scale: 1.05 }}  // Apply parallax movement and scale the close-up image by 5%
+        style={{
+          zIndex: 2,
+          x: isMobile ? 0 : closeUpX,  // Disable parallax effect on mobile
+          scale: 1.05,
+        }}
       >
         <img
           src={closeUpImage}
@@ -67,13 +95,15 @@ export default function SecondaryHero() {
         initial={{ opacity: 0, y: '50%' }}  // Start below the screen
         whileInView={{ opacity: 1, y: '0%' }}  // Animate up with fade-in
         transition={{
-          duration: 0.7, ease: 'easeOut', delay: 0.5,
+          duration: 0.7, // Faster fade-in for text
+          ease: 'easeOut',
+          delay: 1.0,  // Text comes in after images
           staggerChildren: 0.2  // Stagger the children for smoother text reveal
         }}
         viewport={{ once: true, amount: 0.1 }}  // Trigger when 10% is in view
         style={{
-          rotateX: rotateX,  // Apply 3D effect based on mouse position
-          rotateY: rotateY,
+          rotateX: isMobile ? 0 : rotateX,  // Disable 3D rotation effect on mobile
+          rotateY: isMobile ? 0 : rotateY,  // Disable 3D rotation effect on mobile
           zIndex: 3,
         }}
       >
@@ -84,7 +114,7 @@ export default function SecondaryHero() {
               '0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15)',
           }}
         >
-          Discover the Mountains
+          Discover the Future
         </motion.h2>
       </motion.div>
     </div>
